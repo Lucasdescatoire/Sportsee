@@ -7,6 +7,9 @@ import WelcomeUser from "../components/WelcomeUser";
 import Card from "../components/Card";
 // Charts
 import ActivityChart from "../components/Charts/ActivityChart";
+import AverageSessionChart from "../components/Charts/AverageSessionChart";
+import PerformanceChart from "../components/Charts/PerformanceChart";
+import ResultChart from "../components/Charts/ResultChart";
 // Icons
 import iconCalories from "../assets/icons-nutrition/calories.svg";
 import iconGlucides from "../assets/icons-nutrition/glucides.svg";
@@ -34,6 +37,11 @@ const Dashboard = () => {
       <section className="statistique">
         <div className="charts">
           <ActivityChart />
+          <div className="bottom-charts">
+            <AverageSessionChart />
+            <PerformanceChart />
+            <ResultChart data={data.todayScore || data.score} />
+          </div>
         </div>
         <div className="keydata">
           <Card
