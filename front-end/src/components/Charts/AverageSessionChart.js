@@ -10,13 +10,20 @@ import {
 } from "recharts";
 import { getData } from "../../data/services/getdata";
 
+/**
+ * Returns React Component that displays a Average Session Chart.
+ * Fetch Data "USER_AVERAGE_SESSIONS"
+ * @params {number} id to useParams() methode
+ * @returns A React component
+ */
+
 const AverageSessionChart = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const data = async () => {
-      const request = await getData("USER_AVERAGE_SESSIONS", id);
+      const request = await getData("USER_AVERAGE_SESSIONS", parseInt(id));
       if (!request) return alert("Error Average Session Chart");
       const dayData = request.data.sessions.map((data) => {
         switch (data.day) {

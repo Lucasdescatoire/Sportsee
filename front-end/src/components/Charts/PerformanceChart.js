@@ -9,13 +9,19 @@ import {
 } from "recharts";
 import { getData } from "../../data/services/getdata";
 
+/**
+ * Returns React Component that displays a Perfomance Chart.
+ * Fetch Data "USER_PERFORMANCE"
+ * @params {number} id to useParams() methode
+ * @returns A React component
+ */
 const PerformanceChart = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const data = async () => {
-      const request = await getData("USER_PERFORMANCE", id);
+      const request = await getData("USER_PERFORMANCE", parseInt(id));
       if (!request) return alert("Error Perfomance Chart");
       const kindData = request.data.data.map((data) => {
         switch (data.kind) {

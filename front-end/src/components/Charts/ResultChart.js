@@ -6,6 +6,11 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+/**
+ * Returns React Component that displays a Result Chart
+ * @param {data} in Dashboard
+ * @returns A React component
+ */
 const ResultChart = ({ data }) => {
   const result = data * 100;
 
@@ -28,7 +33,7 @@ const ResultChart = ({ data }) => {
           data={score}
           innerRadius="70%"
           startAngle={90}
-          endAngle={450} // (360 + 90)
+          endAngle={450}
           barSize={10}
         >
           <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
